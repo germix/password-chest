@@ -19,6 +19,7 @@ public:
 	~PasswordDialog();
 public:
 	QString getService();
+	QString getUsername();
 	QString getPassword();
 private:
 	void checkOkEnabled();

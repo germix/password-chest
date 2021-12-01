@@ -45,7 +45,7 @@
      <x>0</x>
      <y>0</y>
      <width>597</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -77,6 +77,7 @@
     <property name="title">
      <string>&amp;View</string>
     </property>
+    <addaction name="actionViewUsernames"/>
     <addaction name="actionViewPasswords"/>
     <addaction name="separator"/>
    </widget>
@@ -119,6 +120,7 @@
    <addaction name="actionEditPassword"/>
    <addaction name="actionDeletePassword"/>
    <addaction name="separator"/>
+   <addaction name="actionViewUsernames"/>
    <addaction name="actionViewPasswords"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -219,6 +221,18 @@
    </property>
    <property name="toolTip">
     <string>Save as</string>
+   </property>
+  </action>
+  <action name="actionViewUsernames">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../res/resource.qrc">
+     <normaloff>:/icons/view-username.png</normaloff>:/icons/view-username.png</iconset>
+   </property>
+   <property name="text">
+    <string>View usernames</string>
    </property>
   </action>
  </widget>
@@ -373,6 +387,22 @@
   </connection>
   <connection>
    <sender>actionNewFile</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewUsernames</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>slotAction()</slot>

@@ -13,5 +13,6 @@
         <file>icons/view-password.png</file>
         <file>icons/clear.png</file>
         <file>icons/languages.png</file>
+        <file>icons/view-username.png</file>
     </qresource>
 </RCC>

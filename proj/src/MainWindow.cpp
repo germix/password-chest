@@ -167,7 +167,7 @@ void MainWindow::editPassword(const QModelIndex& index)
 
 	if(dlg.exec() == PasswordDialog::Accepted)
 	{
-		passwordModel->editPassword(index.row(), dlg.getService(), dlg.getPassword());
+		passwordModel->editPassword(index.row(), dlg.getService(), dlg.getUsername(), dlg.getPassword());
 	}
 }
 
@@ -311,7 +311,7 @@ void MainWindow::slotAction()
 
 		if(dlg.exec() == PasswordDialog::Accepted)
 		{
-			passwordModel->addPassword(dlg.getService(), dlg.getPassword());
+			passwordModel->addPassword(dlg.getService(), dlg.getUsername(), dlg.getPassword());
 		}
 	}
 	else if(action == ui->actionEditPassword)
@@ -321,6 +321,11 @@ void MainWindow::slotAction()
 	else if(action == ui->actionDeletePassword)
 	{
 		passwordModel->deletePassword(ui->treeView->currentIndex().row());
+	}
+	else if(action == ui->actionViewUsernames)
+	{
+		passwordModel->setShowUsernames(action->isChecked());
+		ui->treeView->viewport()->update();
 	}
 	else if(action == ui->actionViewPasswords)
 	{

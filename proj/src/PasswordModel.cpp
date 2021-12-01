@@ -5,7 +5,7 @@
 #include <pshpack1.h>
 #define MAGIC "PSWCHEST"
 #define MAGIC_LEN 8
-#define VERSION 1
+#define VERSION 2
 
 struct HEADER
 {
@@ -38,9 +38,9 @@ QString readString(QFile& file)
 PasswordModel::PasswordModel(QObject *parent)
 	: QAbstractItemModel(parent)
 	, dirty(false)
+	, showUsernames(false)
 	, showPasswords(false)
 {
-	passwords.append(Password("a", "b"));
 }
 
 QVariant PasswordModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -51,6 +51,8 @@ QVariant PasswordModel::headerData(int section, Qt::Orientation orientation, int
 		{
 			case COLUMN_SERVICE:
 				return tr("Service");
+			case COLUMN_USERNAME:
+				return tr("Username");
 			case COLUMN_PASSWORD:
 				return tr("Password");
 		}
@@ -94,6 +96,10 @@ QVariant PasswordModel::data(const QModelIndex &index, int role) const
 		{
 			case COLUMN_SERVICE:
 				return psw.service;
+			case COLUMN_USERNAME:
+				if(showUsernames)
+					return psw.username;
+				return QString().fill('*', psw.username.size());
 			case COLUMN_PASSWORD:
 				if(showPasswords)
 					return psw.password;
@@ -151,6 +157,7 @@ bool PasswordModel::save(const QString& fileName)
 			Password& psw = passwords[i];
 
 			writeString(file, psw.service);
+			writeString(file, psw.username);
 			writeString(file, psw.password);
 		}
 
@@ -164,18 +171,18 @@ bool PasswordModel::save(const QString& fileName)
 	return false;
 }
 
-void PasswordModel::addPassword(const QString& service, const QString& password)
+void PasswordModel::addPassword(const QString& service, const QString& username, const QString& password)
 {
 	beginInsertRows(QModelIndex(), passwords.size(), passwords.size());
-	passwords.append(Password(service, password));
+	passwords.append(Password(service, username, password));
 	endInsertRows();
 
 	markDirty();
 }
 
-void PasswordModel::editPassword(int index, const QString& service, const QString& password)
+void PasswordModel::editPassword(int index, const QString& service, const QString& username, const QString& password)
 {
-	passwords[index] = Password(service, password);
+	passwords[index] = Password(service, username, password);
 	dataChanged(createIndex(index, 0), createIndex(index, 0));
 
 	markDirty();
@@ -193,6 +200,11 @@ void PasswordModel::deletePassword(int index)
 Password PasswordModel::getPassword(const QModelIndex& index)
 {
 	return passwords[index.row()];
+}
+
+void PasswordModel::setShowUsernames(bool show)
+{
+	showUsernames = show;
 }
 
 void PasswordModel::setShowPasswords(bool show)
@@ -225,21 +237,32 @@ bool PasswordModel::internalLoad(const QString& fileName)
 		{
 			return false;
 		}
-		if(hdr.version != VERSION)
+		if(hdr.version == 1)
+		{
+			// Read passwords
+			while(!file.atEnd())
+			{
+				QString service = readString(file);
+				QString password = readString(file);
+
+				passwords.append(Password(service, "", password));
+			}
+		}
+		else if(hdr.version == 2)
+		{
+			// Read passwords
+			while(!file.atEnd())
+			{
+				QString service = readString(file);
+				QString username = readString(file);
+				QString password = readString(file);
+
+				passwords.append(Password(service, username, password));
+			}
+		}
+		else
 		{
 			return false;
-		}
-
-		// Read passwords
-		while(!file.atEnd())
-		{
-			QString service;
-			QString password;
-
-			service = readString(file);
-			password = readString(file);
-
-			passwords.append(Password(service, password));
 		}
 
 		if(passwords.size() != hdr.count)

@@ -6,6 +6,7 @@
 enum
 {
 	COLUMN_SERVICE,
+	COLUMN_USERNAME,
 	COLUMN_PASSWORD,
 	MAX_COLUMNS,
 };
@@ -14,6 +15,7 @@ class Password
 {
 public:
 	QString service;
+	QString username;
 	QString password;
 public:
 	Password()
@@ -23,8 +25,9 @@ public:
 	{
 		operator = (o);
 	}
-	Password(const QString& serviceIn, const QString& passwordIn)
+	Password(const QString& serviceIn, const QString& usernameIn, const QString& passwordIn)
 		: service(serviceIn)
+		, username(usernameIn)
 		, password(passwordIn)
 	{
 	}
@@ -32,6 +35,7 @@ public:
 	Password& operator = (const Password& o)
 	{
 		service = o.service;
+		username = o.username;
 		password = o.password;
 		return *this;
 	}
@@ -43,6 +47,7 @@ class PasswordModel : public QAbstractItemModel
 public:
 	QVector<Password> passwords;
 	bool dirty;
+	bool showUsernames;
 	bool showPasswords;
 	QString currentFileName;
 public:
@@ -65,10 +70,11 @@ public:
 	void clear();
 	bool load(const QString& fileName);
 	bool save(const QString& fileName);
-	void addPassword(const QString& service, const QString& password);
-	void editPassword(int index, const QString& service, const QString& password);
+	void addPassword(const QString& service, const QString& username, const QString& password);
+	void editPassword(int index, const QString& service, const QString& username, const QString& password);
 	void deletePassword(int index);
 	Password getPassword(const QModelIndex& index);
+	void setShowUsernames(bool show);
 	void setShowPasswords(bool show);
 	bool isDirty() const
 	{
