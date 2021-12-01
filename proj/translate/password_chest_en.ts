@@ -62,111 +62,116 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="85"/>
+        <location filename="../src/MainWindow.ui" line="86"/>
         <source>&amp;Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="89"/>
+        <location filename="../src/MainWindow.ui" line="90"/>
         <source>&amp;Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="106"/>
+        <location filename="../src/MainWindow.ui" line="107"/>
         <source>Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="131"/>
+        <location filename="../src/MainWindow.ui" line="133"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="140"/>
+        <location filename="../src/MainWindow.ui" line="142"/>
         <source>&amp;Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="149"/>
+        <location filename="../src/MainWindow.ui" line="151"/>
         <source>&amp;Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="158"/>
+        <location filename="../src/MainWindow.ui" line="160"/>
         <source>&amp;Add password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="167"/>
+        <location filename="../src/MainWindow.ui" line="169"/>
         <source>&amp;Edit password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="176"/>
+        <location filename="../src/MainWindow.ui" line="178"/>
         <source>&amp;Delete password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="185"/>
+        <location filename="../src/MainWindow.ui" line="187"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="194"/>
+        <location filename="../src/MainWindow.ui" line="196"/>
         <source>&amp;New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="206"/>
-        <location filename="../src/MainWindow.ui" line="209"/>
+        <location filename="../src/MainWindow.ui" line="208"/>
+        <location filename="../src/MainWindow.ui" line="211"/>
         <source>View passwords</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="218"/>
+        <location filename="../src/MainWindow.ui" line="220"/>
         <source>Save &amp;as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="221"/>
+        <location filename="../src/MainWindow.ui" line="223"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="64"/>
-        <location filename="../src/MainWindow.cpp" line="221"/>
+        <location filename="../src/MainWindow.ui" line="235"/>
+        <source>View usernames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="68"/>
+        <location filename="../src/MainWindow.cpp" line="225"/>
         <source>Recent files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="100"/>
+        <location filename="../src/MainWindow.cpp" line="104"/>
         <source>Save file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="102"/>
-        <location filename="../src/MainWindow.cpp" line="280"/>
+        <location filename="../src/MainWindow.cpp" line="106"/>
+        <location filename="../src/MainWindow.cpp" line="284"/>
         <source>Password Chest files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="127"/>
-        <location filename="../src/MainWindow.cpp" line="176"/>
+        <location filename="../src/MainWindow.cpp" line="131"/>
+        <location filename="../src/MainWindow.cpp" line="180"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="132"/>
+        <location filename="../src/MainWindow.cpp" line="136"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="133"/>
+        <location filename="../src/MainWindow.cpp" line="137"/>
         <source>Save file &quot;%1&quot;?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="284"/>
+        <location filename="../src/MainWindow.cpp" line="288"/>
         <source>Open file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -179,17 +184,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PasswordDialog.ui" line="30"/>
+        <location filename="../src/PasswordDialog.ui" line="64"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PasswordDialog.ui" line="55"/>
+        <location filename="../src/PasswordDialog.ui" line="71"/>
+        <source>Username:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/PasswordDialog.ui" line="45"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PasswordDialog.ui" line="62"/>
+        <location filename="../src/PasswordDialog.ui" line="52"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -199,7 +209,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PasswordDialog.cpp" line="24"/>
+        <location filename="../src/PasswordDialog.cpp" line="25"/>
         <source>Edit password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -213,6 +223,11 @@
     </message>
     <message>
         <location filename="../src/PasswordModel.cpp" line="55"/>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/PasswordModel.cpp" line="57"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
